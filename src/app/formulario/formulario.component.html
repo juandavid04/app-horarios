@@ -1,0 +1,88 @@
+<div class="row">
+  <div class="col-3">
+    <label>Asignatura</label>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-3">
+    <input type="text" class="form-control" [(ngModel)]="nombre" />
+  </div>
+
+  <div class="col-3">
+    <button type="submit" class="btn btn-primary" (click)="agregar()">
+      Agregar
+    </button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="card mt-5 col-4">
+    <div class="list-group list-group-flush">
+      <div
+        class="list-group-item"
+        (click)="esconder()"
+        value="item.nombre"
+        *ngFor="let item of asignaturas"
+      >
+        <label>{{ item.nombre }}</label>
+        <button class="btn float-right">
+          <i class="bi bi-x-circle"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-8 mt-5" *ngIf="!hidden">
+    <div class="row">
+      <div class="col-2">
+        <label id="grupos">Grupo</label>
+      </div>
+      <div class="col-10">
+        <label>Horario</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-2">
+        <input type="text" class="form-control" for="grupos" />
+      </div>
+
+      <div class="col-10">
+        <div class="row">
+          <div class="col-2">
+            <select class="form-select">
+              <option>Día</option>
+              <option>Lunes</option>
+              <option>Martes</option>
+              <option>Miercoles</option>
+              <option>Jueves</option>
+              <option>Viernes</option>
+              <option>Sabado</option>
+              <option>Domingo</option>
+            </select>
+          </div>
+
+          <div class="col-1">
+            <label>Desde: </label>
+          </div>
+
+          <div class="col-4">
+            <input type="time" class="form-control" />
+          </div>
+
+          <div class="col-1">
+            <label>Hasta: </label>
+          </div>
+
+          <div class="col-4">
+            <input type="time" class="form-control" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+ -->
